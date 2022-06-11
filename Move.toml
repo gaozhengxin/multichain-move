@@ -1,0 +1,16 @@
+[package]
+name = "multichain"
+version = "0.0.0"
+    
+        
+[addresses]
+GoldCoin = "0x11"
+BasicCoin = "0x10"
+Multichain = "0x20"
+SilverCoin = "0x12"
+Bob = "0x21"
+Alice = "0x20"
+    
+        
+[dependencies]
+move-stdlib = { git="https://github.com/pontem-network/move-stdlib", rev="main" }
