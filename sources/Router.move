@@ -22,9 +22,9 @@ module Multichain::Router {
         move_to(multichain, TokenInfo<CoinType>{mode});  
     }  
 
-    public fun approve_coin<CoinType: store>(mint_cap: MintCapability<CoinType>, burn_cap: BurnCapability<CoinType>) {
-        move_to(@Multichain, MintCap<CoinType> { cap: copy mint_cap });
-        move_to(@Multichain, BurnCap<CoinType> { cap: copy burn_cap });
+    public fun approve_coin<CoinType: store>(multichain: &signer, mint_cap: MintCapability<CoinType>, burn_cap: BurnCapability<CoinType>) {
+        move_to(multichain, MintCap<CoinType> { cap: mint_cap });
+        move_to(multichain, BurnCap<CoinType> { cap: burn_cap });
     }
 
     public(script) fun swapout<CoinType: store>(account: &signer, amount: u64, receiver: vector<u8>, toChainID: u64) acquires BurnCap, TokenInfo {  
