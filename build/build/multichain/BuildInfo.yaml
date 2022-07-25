@@ -1,0 +1,22 @@
+---
+compiled_package_info:
+  package_name: multichain
+  address_alias_instantiation:
+    AptosFramework: "0000000000000000000000000000000000000000000000000000000000000001"
+    CoreResources: 000000000000000000000000000000000000000000000000000000000a550c18
+    Multichain: "0000000000000000000000000000000000000000000000000000000000000002"
+    Std: "0000000000000000000000000000000000000000000000000000000000000001"
+    VMReserved: "0000000000000000000000000000000000000000000000000000000000000000"
+  source_digest: 7146C9A0F9FAB4C8814A64CC218EA77422BE9292FA4FCF97D3F9C856E66F4D0E
+  build_flags:
+    dev_mode: false
+    test_mode: false
+    generate_docs: true
+    generate_abis: true
+    install_dir: "./build"
+    force_recompilation: false
+    additional_named_addresses: {}
+    architecture: ~
+dependencies:
+  - AptosFramework
+  - MoveStdlib
