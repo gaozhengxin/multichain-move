@@ -6,6 +6,8 @@ version = "0.0.0"
 AptosFramework = { git = "https://github.com/aptos-labs/aptos-core.git", subdir = "aptos-move/framework/aptos-framework/", rev = "main" }
 
 [addresses]
-Multichain = "0x2"
+Multichain = "0x04e0dc7e597ace235edaa4498f6e09f47dc9fd6a0e93df278b0d11d5080e44f2"
+Alice = "0xbfeddfe5a95aad33c04bf13ce38c1cee03d0af727d7ea938ca1bdf377db240b5"
+Bob = "0xf0ff70c04f552410ffbf8234c1291e155c5c68e059b36959cac30381a6341fe9"
 
 

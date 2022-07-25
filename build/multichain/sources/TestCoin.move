@@ -1,5 +1,5 @@
 /// The module to show how to create a new coin on Aptos network.
-module Multichain::TestCoin {
+module Alice::TestCoin {
     use Std::ASCII::string;
     use AptosFramework::Coin::Self;
     use Std::Signer;
@@ -39,7 +39,7 @@ module Multichain::TestCoin {
 
     /// Similar to `initialize_internal` but can be executed as script.
     public(script) fun initialize(account: &signer) {
-        initialize(account);
+        initialize_internal(account);
     }
 
     /// Extract mint or burn capability from user account.

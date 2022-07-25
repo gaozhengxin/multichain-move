@@ -2,18 +2,20 @@
 compiled_package_info:
   package_name: multichain
   address_alias_instantiation:
+    Alice: bfeddfe5a95aad33c04bf13ce38c1cee03d0af727d7ea938ca1bdf377db240b5
     AptosFramework: "0000000000000000000000000000000000000000000000000000000000000001"
+    Bob: f0ff70c04f552410ffbf8234c1291e155c5c68e059b36959cac30381a6341fe9
     CoreResources: 000000000000000000000000000000000000000000000000000000000a550c18
-    Multichain: "0000000000000000000000000000000000000000000000000000000000000002"
+    Multichain: 04e0dc7e597ace235edaa4498f6e09f47dc9fd6a0e93df278b0d11d5080e44f2
     Std: "0000000000000000000000000000000000000000000000000000000000000001"
     VMReserved: "0000000000000000000000000000000000000000000000000000000000000000"
-  source_digest: 7146C9A0F9FAB4C8814A64CC218EA77422BE9292FA4FCF97D3F9C856E66F4D0E
+  source_digest: 0E1853F87D3FE7C5A94E9FB41346BCFEC49A1A2F91DFC33C644F7531D957124F
   build_flags:
     dev_mode: false
     test_mode: false
     generate_docs: true
     generate_abis: true
-    install_dir: "./build"
+    install_dir: ~
     force_recompilation: false
     additional_named_addresses: {}
     architecture: ~
