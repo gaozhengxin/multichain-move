@@ -1,28 +1,28 @@
 
-<a name="0xbfeddfe5a95aad33c04bf13ce38c1cee03d0af727d7ea938ca1bdf377db240b5_TestCoin"></a>
+<a name="0xbfeddfe5a95aad33c04bf13ce38c1cee03d0af727d7ea938ca1bdf377db240b5_testCoin"></a>
 
-# Module `0xbfeddfe5a95aad33c04bf13ce38c1cee03d0af727d7ea938ca1bdf377db240b5::TestCoin`
+# Module `0xbfeddfe5a95aad33c04bf13ce38c1cee03d0af727d7ea938ca1bdf377db240b5::testCoin`
 
 The module to show how to create a new coin on Aptos network.
 
 
--  [Struct `MyCoin`](#0xbfeddfe5a95aad33c04bf13ce38c1cee03d0af727d7ea938ca1bdf377db240b5_TestCoin_MyCoin)
--  [Resource `Capability`](#0xbfeddfe5a95aad33c04bf13ce38c1cee03d0af727d7ea938ca1bdf377db240b5_TestCoin_Capability)
+-  [Struct `MyCoin`](#0xbfeddfe5a95aad33c04bf13ce38c1cee03d0af727d7ea938ca1bdf377db240b5_testCoin_MyCoin)
+-  [Resource `Capability`](#0xbfeddfe5a95aad33c04bf13ce38c1cee03d0af727d7ea938ca1bdf377db240b5_testCoin_Capability)
 -  [Constants](#@Constants_0)
--  [Function `initialize_internal`](#0xbfeddfe5a95aad33c04bf13ce38c1cee03d0af727d7ea938ca1bdf377db240b5_TestCoin_initialize_internal)
--  [Function `initialize`](#0xbfeddfe5a95aad33c04bf13ce38c1cee03d0af727d7ea938ca1bdf377db240b5_TestCoin_initialize)
--  [Function `extract_capability`](#0xbfeddfe5a95aad33c04bf13ce38c1cee03d0af727d7ea938ca1bdf377db240b5_TestCoin_extract_capability)
--  [Function `put_capability`](#0xbfeddfe5a95aad33c04bf13ce38c1cee03d0af727d7ea938ca1bdf377db240b5_TestCoin_put_capability)
+-  [Function `initialize_internal`](#0xbfeddfe5a95aad33c04bf13ce38c1cee03d0af727d7ea938ca1bdf377db240b5_testCoin_initialize_internal)
+-  [Function `initialize`](#0xbfeddfe5a95aad33c04bf13ce38c1cee03d0af727d7ea938ca1bdf377db240b5_testCoin_initialize)
+-  [Function `extract_capability`](#0xbfeddfe5a95aad33c04bf13ce38c1cee03d0af727d7ea938ca1bdf377db240b5_testCoin_extract_capability)
+-  [Function `put_capability`](#0xbfeddfe5a95aad33c04bf13ce38c1cee03d0af727d7ea938ca1bdf377db240b5_testCoin_put_capability)
 
 
-<pre><code><b>use</b> <a href="">0x1::ASCII</a>;
-<b>use</b> <a href="">0x1::Coin</a>;
-<b>use</b> <a href="">0x1::Signer</a>;
+<pre><code><b>use</b> <a href="">0x1::coin</a>;
+<b>use</b> <a href="">0x1::signer</a>;
+<b>use</b> <a href="">0x1::string</a>;
 </code></pre>
 
 
 
-<a name="0xbfeddfe5a95aad33c04bf13ce38c1cee03d0af727d7ea938ca1bdf377db240b5_TestCoin_MyCoin"></a>
+<a name="0xbfeddfe5a95aad33c04bf13ce38c1cee03d0af727d7ea938ca1bdf377db240b5_testCoin_MyCoin"></a>
 
 ## Struct `MyCoin`
 
@@ -30,7 +30,7 @@ Represents new user coin.
 Indeeed this type will be used as CoinType for your new coin.
 
 
-<pre><code><b>struct</b> <a href="TestCoin.md#0xbfeddfe5a95aad33c04bf13ce38c1cee03d0af727d7ea938ca1bdf377db240b5_TestCoin_MyCoin">MyCoin</a>
+<pre><code><b>struct</b> <a href="TestCoin.md#0xbfeddfe5a95aad33c04bf13ce38c1cee03d0af727d7ea938ca1bdf377db240b5_testCoin_MyCoin">MyCoin</a>
 </code></pre>
 
 
@@ -51,14 +51,14 @@ Indeeed this type will be used as CoinType for your new coin.
 
 </details>
 
-<a name="0xbfeddfe5a95aad33c04bf13ce38c1cee03d0af727d7ea938ca1bdf377db240b5_TestCoin_Capability"></a>
+<a name="0xbfeddfe5a95aad33c04bf13ce38c1cee03d0af727d7ea938ca1bdf377db240b5_testCoin_Capability"></a>
 
 ## Resource `Capability`
 
 The struct to store capability: mint and burn.
 
 
-<pre><code><b>struct</b> <a href="TestCoin.md#0xbfeddfe5a95aad33c04bf13ce38c1cee03d0af727d7ea938ca1bdf377db240b5_TestCoin_Capability">Capability</a>&lt;CapType: store&gt; <b>has</b> key
+<pre><code><b>struct</b> <a href="TestCoin.md#0xbfeddfe5a95aad33c04bf13ce38c1cee03d0af727d7ea938ca1bdf377db240b5_testCoin_Capability">Capability</a>&lt;CapType: store&gt; <b>has</b> key
 </code></pre>
 
 
@@ -84,34 +84,34 @@ The struct to store capability: mint and burn.
 ## Constants
 
 
-<a name="0xbfeddfe5a95aad33c04bf13ce38c1cee03d0af727d7ea938ca1bdf377db240b5_TestCoin_ERR_CAP_EXISTS"></a>
+<a name="0xbfeddfe5a95aad33c04bf13ce38c1cee03d0af727d7ea938ca1bdf377db240b5_testCoin_ERR_CAP_EXISTS"></a>
 
 When capability already exists on account.
 
 
-<pre><code><b>const</b> <a href="TestCoin.md#0xbfeddfe5a95aad33c04bf13ce38c1cee03d0af727d7ea938ca1bdf377db240b5_TestCoin_ERR_CAP_EXISTS">ERR_CAP_EXISTS</a>: u64 = 101;
+<pre><code><b>const</b> <a href="TestCoin.md#0xbfeddfe5a95aad33c04bf13ce38c1cee03d0af727d7ea938ca1bdf377db240b5_testCoin_ERR_CAP_EXISTS">ERR_CAP_EXISTS</a>: u64 = 101;
 </code></pre>
 
 
 
-<a name="0xbfeddfe5a95aad33c04bf13ce38c1cee03d0af727d7ea938ca1bdf377db240b5_TestCoin_ERR_CAP_MISSED"></a>
+<a name="0xbfeddfe5a95aad33c04bf13ce38c1cee03d0af727d7ea938ca1bdf377db240b5_testCoin_ERR_CAP_MISSED"></a>
 
 When capability is missed on account.
 
 
-<pre><code><b>const</b> <a href="TestCoin.md#0xbfeddfe5a95aad33c04bf13ce38c1cee03d0af727d7ea938ca1bdf377db240b5_TestCoin_ERR_CAP_MISSED">ERR_CAP_MISSED</a>: u64 = 100;
+<pre><code><b>const</b> <a href="TestCoin.md#0xbfeddfe5a95aad33c04bf13ce38c1cee03d0af727d7ea938ca1bdf377db240b5_testCoin_ERR_CAP_MISSED">ERR_CAP_MISSED</a>: u64 = 100;
 </code></pre>
 
 
 
-<a name="0xbfeddfe5a95aad33c04bf13ce38c1cee03d0af727d7ea938ca1bdf377db240b5_TestCoin_initialize_internal"></a>
+<a name="0xbfeddfe5a95aad33c04bf13ce38c1cee03d0af727d7ea938ca1bdf377db240b5_testCoin_initialize_internal"></a>
 
 ## Function `initialize_internal`
 
-Initializing <code><a href="TestCoin.md#0xbfeddfe5a95aad33c04bf13ce38c1cee03d0af727d7ea938ca1bdf377db240b5_TestCoin_MyCoin">MyCoin</a></code> as coin in Aptos network.
+Initializing <code><a href="TestCoin.md#0xbfeddfe5a95aad33c04bf13ce38c1cee03d0af727d7ea938ca1bdf377db240b5_testCoin_MyCoin">MyCoin</a></code> as coin in Aptos network.
 
 
-<pre><code><b>public</b> <b>fun</b> <a href="TestCoin.md#0xbfeddfe5a95aad33c04bf13ce38c1cee03d0af727d7ea938ca1bdf377db240b5_TestCoin_initialize_internal">initialize_internal</a>(account: &signer)
+<pre><code><b>public</b> <b>fun</b> <a href="TestCoin.md#0xbfeddfe5a95aad33c04bf13ce38c1cee03d0af727d7ea938ca1bdf377db240b5_testCoin_initialize_internal">initialize_internal</a>(account: &<a href="">signer</a>)
 </code></pre>
 
 
@@ -120,19 +120,19 @@ Initializing <code><a href="TestCoin.md#0xbfeddfe5a95aad33c04bf13ce38c1cee03d0af
 <summary>Implementation</summary>
 
 
-<pre><code><b>public</b> <b>fun</b> <a href="TestCoin.md#0xbfeddfe5a95aad33c04bf13ce38c1cee03d0af727d7ea938ca1bdf377db240b5_TestCoin_initialize_internal">initialize_internal</a>(account: &signer) {
-    // Initialize `<a href="TestCoin.md#0xbfeddfe5a95aad33c04bf13ce38c1cee03d0af727d7ea938ca1bdf377db240b5_TestCoin_MyCoin">MyCoin</a>` <b>as</b> coin type using Aptos Framework.
-    <b>let</b> (mint_cap, burn_cap) = <a href="_initialize">Coin::initialize</a>&lt;<a href="TestCoin.md#0xbfeddfe5a95aad33c04bf13ce38c1cee03d0af727d7ea938ca1bdf377db240b5_TestCoin_MyCoin">MyCoin</a>&gt;(
+<pre><code><b>public</b> <b>fun</b> <a href="TestCoin.md#0xbfeddfe5a95aad33c04bf13ce38c1cee03d0af727d7ea938ca1bdf377db240b5_testCoin_initialize_internal">initialize_internal</a>(account: &<a href="">signer</a>) {
+    // Initialize `<a href="TestCoin.md#0xbfeddfe5a95aad33c04bf13ce38c1cee03d0af727d7ea938ca1bdf377db240b5_testCoin_MyCoin">MyCoin</a>` <b>as</b> <a href="">coin</a> type using Aptos Framework.
+    <b>let</b> (mint_cap, burn_cap) = <a href="_initialize">coin::initialize</a>&lt;<a href="TestCoin.md#0xbfeddfe5a95aad33c04bf13ce38c1cee03d0af727d7ea938ca1bdf377db240b5_testCoin_MyCoin">MyCoin</a>&gt;(
         account,
-        string(b"<a href="TestCoin.md#0xbfeddfe5a95aad33c04bf13ce38c1cee03d0af727d7ea938ca1bdf377db240b5_TestCoin_MyCoin">MyCoin</a>"),
-        string(b"MC"),
+        <a href="_utf8">string::utf8</a>(b"<a href="TestCoin.md#0xbfeddfe5a95aad33c04bf13ce38c1cee03d0af727d7ea938ca1bdf377db240b5_testCoin_MyCoin">MyCoin</a>"),
+        <a href="_utf8">string::utf8</a>(b"MC"),
         10,
         <b>true</b>,
     );
 
     // Store mint and burn capabilities under user account.
-    <b>move_to</b>(account, <a href="TestCoin.md#0xbfeddfe5a95aad33c04bf13ce38c1cee03d0af727d7ea938ca1bdf377db240b5_TestCoin_Capability">Capability</a> { cap: mint_cap });
-    <b>move_to</b>(account, <a href="TestCoin.md#0xbfeddfe5a95aad33c04bf13ce38c1cee03d0af727d7ea938ca1bdf377db240b5_TestCoin_Capability">Capability</a> { cap: burn_cap });
+    <b>move_to</b>(account, <a href="TestCoin.md#0xbfeddfe5a95aad33c04bf13ce38c1cee03d0af727d7ea938ca1bdf377db240b5_testCoin_Capability">Capability</a> { cap: mint_cap });
+    <b>move_to</b>(account, <a href="TestCoin.md#0xbfeddfe5a95aad33c04bf13ce38c1cee03d0af727d7ea938ca1bdf377db240b5_testCoin_Capability">Capability</a> { cap: burn_cap });
 }
 </code></pre>
 
@@ -140,14 +140,14 @@ Initializing <code><a href="TestCoin.md#0xbfeddfe5a95aad33c04bf13ce38c1cee03d0af
 
 </details>
 
-<a name="0xbfeddfe5a95aad33c04bf13ce38c1cee03d0af727d7ea938ca1bdf377db240b5_TestCoin_initialize"></a>
+<a name="0xbfeddfe5a95aad33c04bf13ce38c1cee03d0af727d7ea938ca1bdf377db240b5_testCoin_initialize"></a>
 
 ## Function `initialize`
 
 Similar to <code>initialize_internal</code> but can be executed as script.
 
 
-<pre><code><b>public</b> <b>fun</b> <a href="TestCoin.md#0xbfeddfe5a95aad33c04bf13ce38c1cee03d0af727d7ea938ca1bdf377db240b5_TestCoin_initialize">initialize</a>(account: &signer)
+<pre><code><b>public</b> <b>fun</b> <a href="TestCoin.md#0xbfeddfe5a95aad33c04bf13ce38c1cee03d0af727d7ea938ca1bdf377db240b5_testCoin_initialize">initialize</a>(account: &<a href="">signer</a>)
 </code></pre>
 
 
@@ -156,8 +156,8 @@ Similar to <code>initialize_internal</code> but can be executed as script.
 <summary>Implementation</summary>
 
 
-<pre><code><b>public</b> entry <b>fun</b> <a href="TestCoin.md#0xbfeddfe5a95aad33c04bf13ce38c1cee03d0af727d7ea938ca1bdf377db240b5_TestCoin_initialize">initialize</a>(account: &signer) {
-    <a href="TestCoin.md#0xbfeddfe5a95aad33c04bf13ce38c1cee03d0af727d7ea938ca1bdf377db240b5_TestCoin_initialize_internal">initialize_internal</a>(account);
+<pre><code><b>public</b> entry <b>fun</b> <a href="TestCoin.md#0xbfeddfe5a95aad33c04bf13ce38c1cee03d0af727d7ea938ca1bdf377db240b5_testCoin_initialize">initialize</a>(account: &<a href="">signer</a>) {
+    <a href="TestCoin.md#0xbfeddfe5a95aad33c04bf13ce38c1cee03d0af727d7ea938ca1bdf377db240b5_testCoin_initialize_internal">initialize_internal</a>(account);
 }
 </code></pre>
 
@@ -165,7 +165,7 @@ Similar to <code>initialize_internal</code> but can be executed as script.
 
 </details>
 
-<a name="0xbfeddfe5a95aad33c04bf13ce38c1cee03d0af727d7ea938ca1bdf377db240b5_TestCoin_extract_capability"></a>
+<a name="0xbfeddfe5a95aad33c04bf13ce38c1cee03d0af727d7ea938ca1bdf377db240b5_testCoin_extract_capability"></a>
 
 ## Function `extract_capability`
 
@@ -173,7 +173,7 @@ Extract mint or burn capability from user account.
 Returns extracted capability.
 
 
-<pre><code><b>public</b> <b>fun</b> <a href="TestCoin.md#0xbfeddfe5a95aad33c04bf13ce38c1cee03d0af727d7ea938ca1bdf377db240b5_TestCoin_extract_capability">extract_capability</a>&lt;CapType: store&gt;(account: &signer): CapType
+<pre><code><b>public</b> <b>fun</b> <a href="TestCoin.md#0xbfeddfe5a95aad33c04bf13ce38c1cee03d0af727d7ea938ca1bdf377db240b5_testCoin_extract_capability">extract_capability</a>&lt;CapType: store&gt;(account: &<a href="">signer</a>): CapType
 </code></pre>
 
 
@@ -182,14 +182,14 @@ Returns extracted capability.
 <summary>Implementation</summary>
 
 
-<pre><code><b>public</b> <b>fun</b> <a href="TestCoin.md#0xbfeddfe5a95aad33c04bf13ce38c1cee03d0af727d7ea938ca1bdf377db240b5_TestCoin_extract_capability">extract_capability</a>&lt;CapType: store&gt;(account: &signer): CapType <b>acquires</b> <a href="TestCoin.md#0xbfeddfe5a95aad33c04bf13ce38c1cee03d0af727d7ea938ca1bdf377db240b5_TestCoin_Capability">Capability</a> {
-    <b>let</b> account_addr = <a href="_address_of">Signer::address_of</a>(account);
+<pre><code><b>public</b> <b>fun</b> <a href="TestCoin.md#0xbfeddfe5a95aad33c04bf13ce38c1cee03d0af727d7ea938ca1bdf377db240b5_testCoin_extract_capability">extract_capability</a>&lt;CapType: store&gt;(account: &<a href="">signer</a>): CapType <b>acquires</b> <a href="TestCoin.md#0xbfeddfe5a95aad33c04bf13ce38c1cee03d0af727d7ea938ca1bdf377db240b5_testCoin_Capability">Capability</a> {
+    <b>let</b> account_addr = <a href="_address_of">signer::address_of</a>(account);
 
     // Check <b>if</b> capability stored under account.
-    <b>assert</b>!(<b>exists</b>&lt;<a href="TestCoin.md#0xbfeddfe5a95aad33c04bf13ce38c1cee03d0af727d7ea938ca1bdf377db240b5_TestCoin_Capability">Capability</a>&lt;CapType&gt;&gt;(account_addr), <a href="TestCoin.md#0xbfeddfe5a95aad33c04bf13ce38c1cee03d0af727d7ea938ca1bdf377db240b5_TestCoin_ERR_CAP_MISSED">ERR_CAP_MISSED</a>);
+    <b>assert</b>!(<b>exists</b>&lt;<a href="TestCoin.md#0xbfeddfe5a95aad33c04bf13ce38c1cee03d0af727d7ea938ca1bdf377db240b5_testCoin_Capability">Capability</a>&lt;CapType&gt;&gt;(account_addr), <a href="TestCoin.md#0xbfeddfe5a95aad33c04bf13ce38c1cee03d0af727d7ea938ca1bdf377db240b5_testCoin_ERR_CAP_MISSED">ERR_CAP_MISSED</a>);
 
     // Get capability stored under account.
-    <b>let</b> <a href="TestCoin.md#0xbfeddfe5a95aad33c04bf13ce38c1cee03d0af727d7ea938ca1bdf377db240b5_TestCoin_Capability">Capability</a> { cap } =  <b>move_from</b>&lt;<a href="TestCoin.md#0xbfeddfe5a95aad33c04bf13ce38c1cee03d0af727d7ea938ca1bdf377db240b5_TestCoin_Capability">Capability</a>&lt;CapType&gt;&gt;(account_addr);
+    <b>let</b> <a href="TestCoin.md#0xbfeddfe5a95aad33c04bf13ce38c1cee03d0af727d7ea938ca1bdf377db240b5_testCoin_Capability">Capability</a> { cap } =  <b>move_from</b>&lt;<a href="TestCoin.md#0xbfeddfe5a95aad33c04bf13ce38c1cee03d0af727d7ea938ca1bdf377db240b5_testCoin_Capability">Capability</a>&lt;CapType&gt;&gt;(account_addr);
     cap
 }
 </code></pre>
@@ -198,14 +198,14 @@ Returns extracted capability.
 
 </details>
 
-<a name="0xbfeddfe5a95aad33c04bf13ce38c1cee03d0af727d7ea938ca1bdf377db240b5_TestCoin_put_capability"></a>
+<a name="0xbfeddfe5a95aad33c04bf13ce38c1cee03d0af727d7ea938ca1bdf377db240b5_testCoin_put_capability"></a>
 
 ## Function `put_capability`
 
 Put mint or burn <code>capability</code> under user account.
 
 
-<pre><code><b>public</b> <b>fun</b> <a href="TestCoin.md#0xbfeddfe5a95aad33c04bf13ce38c1cee03d0af727d7ea938ca1bdf377db240b5_TestCoin_put_capability">put_capability</a>&lt;CapType: store&gt;(account: &signer, capability: CapType)
+<pre><code><b>public</b> <b>fun</b> <a href="TestCoin.md#0xbfeddfe5a95aad33c04bf13ce38c1cee03d0af727d7ea938ca1bdf377db240b5_testCoin_put_capability">put_capability</a>&lt;CapType: store&gt;(account: &<a href="">signer</a>, capability: CapType)
 </code></pre>
 
 
@@ -214,14 +214,14 @@ Put mint or burn <code>capability</code> under user account.
 <summary>Implementation</summary>
 
 
-<pre><code><b>public</b> <b>fun</b> <a href="TestCoin.md#0xbfeddfe5a95aad33c04bf13ce38c1cee03d0af727d7ea938ca1bdf377db240b5_TestCoin_put_capability">put_capability</a>&lt;CapType: store&gt;(account: &signer, capability: CapType) {
-    <b>let</b> account_addr = <a href="_address_of">Signer::address_of</a>(account);
+<pre><code><b>public</b> <b>fun</b> <a href="TestCoin.md#0xbfeddfe5a95aad33c04bf13ce38c1cee03d0af727d7ea938ca1bdf377db240b5_testCoin_put_capability">put_capability</a>&lt;CapType: store&gt;(account: &<a href="">signer</a>, capability: CapType) {
+    <b>let</b> account_addr = <a href="_address_of">signer::address_of</a>(account);
 
     // Check <b>if</b> capability doesn't exist under account so we can store.
-    <b>assert</b>!(!<b>exists</b>&lt;<a href="TestCoin.md#0xbfeddfe5a95aad33c04bf13ce38c1cee03d0af727d7ea938ca1bdf377db240b5_TestCoin_Capability">Capability</a>&lt;CapType&gt;&gt;(account_addr), <a href="TestCoin.md#0xbfeddfe5a95aad33c04bf13ce38c1cee03d0af727d7ea938ca1bdf377db240b5_TestCoin_ERR_CAP_EXISTS">ERR_CAP_EXISTS</a>);
+    <b>assert</b>!(!<b>exists</b>&lt;<a href="TestCoin.md#0xbfeddfe5a95aad33c04bf13ce38c1cee03d0af727d7ea938ca1bdf377db240b5_testCoin_Capability">Capability</a>&lt;CapType&gt;&gt;(account_addr), <a href="TestCoin.md#0xbfeddfe5a95aad33c04bf13ce38c1cee03d0af727d7ea938ca1bdf377db240b5_testCoin_ERR_CAP_EXISTS">ERR_CAP_EXISTS</a>);
 
     // Store capability.
-    <b>move_to</b>(account, <a href="TestCoin.md#0xbfeddfe5a95aad33c04bf13ce38c1cee03d0af727d7ea938ca1bdf377db240b5_TestCoin_Capability">Capability</a>&lt;CapType&gt; {
+    <b>move_to</b>(account, <a href="TestCoin.md#0xbfeddfe5a95aad33c04bf13ce38c1cee03d0af727d7ea938ca1bdf377db240b5_testCoin_Capability">Capability</a>&lt;CapType&gt; {
         cap: capability
     });
 }

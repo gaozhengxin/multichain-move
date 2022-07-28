@@ -5,12 +5,12 @@
 /// be represented by separate global state items. The number of items and a unique handle are tracked on the table
 /// struct itself, while the operations are implemented as native functions. No traversal is provided.
 
-module AptosFramework::Table {
-    use Std::Errors;
+module aptos_framework::table {
+    use std::errors;
 
-    // native code raises this with Errors::invalid_arguments()
+    // native code raises this with errors::invalid_arguments()
     const EALREADY_EXISTS: u64 = 100;
-    // native code raises this with Errors::invalid_arguments()
+    // native code raises this with errors::invalid_arguments()
     const ENOT_FOUND: u64 = 101;
     const ENOT_EMPTY: u64 = 102;
 
@@ -23,14 +23,14 @@ module AptosFramework::Table {
     /// Create a new Table.
     public fun new<K: copy + drop, V: store>(): Table<K, V> {
         Table{
-            handle: new_table_handle(),
+            handle: new_table_handle<K, V>(),
             length: 0,
         }
     }
 
     /// Destroy a table. The table must be empty to succeed.
     public fun destroy_empty<K: copy + drop, V>(table: Table<K, V>) {
-        assert!(table.length == 0, Errors::invalid_state(ENOT_EMPTY));
+        assert!(table.length == 0, errors::invalid_state(ENOT_EMPTY));
         destroy_empty_box<K, V, Box<V>>(&table);
         drop_unchecked_box<K, V, Box<V>>(table)
     }
@@ -103,7 +103,7 @@ module AptosFramework::Table {
 
     // Primitives which take as an additional type parameter `Box<V>`, so the implementation
     // can use this to determine serialization layout.
-    native fun new_table_handle(): u128;
+    native fun new_table_handle<K, V>(): u128;
     native fun add_box<K: copy + drop, V, B>(table: &mut Table<K, V>, key: K, val: Box<V>);
     native fun borrow_box<K: copy + drop, V, B>(table: &Table<K, V>, key: K): &Box<V>;
     native fun borrow_box_mut<K: copy + drop, V, B>(table: &mut Table<K, V>, key: K): &mut Box<V>;

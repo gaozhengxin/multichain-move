@@ -1,8 +1,8 @@
 /// The module to show how to create a new coin on Aptos network.
-module Alice::TestCoin {
-    use Std::ASCII::string;
-    use AptosFramework::Coin::Self;
-    use Std::Signer;
+module alice::testCoin {
+    use std::string;
+    use aptos_framework::coin::Self;
+    use std::signer;
 
     // Errors.
 
@@ -24,10 +24,10 @@ module Alice::TestCoin {
     /// Initializing `MyCoin` as coin in Aptos network.
     public fun initialize_internal(account: &signer) {
         // Initialize `MyCoin` as coin type using Aptos Framework.
-        let (mint_cap, burn_cap) = Coin::initialize<MyCoin>(
+        let (mint_cap, burn_cap) = coin::initialize<MyCoin>(
             account,
-            string(b"MyCoin"),
-            string(b"MC"),
+            string::utf8(b"MyCoin"),
+            string::utf8(b"MC"),
             10,
             true,
         );
@@ -45,7 +45,7 @@ module Alice::TestCoin {
     /// Extract mint or burn capability from user account.
     /// Returns extracted capability.
     public fun extract_capability<CapType: store>(account: &signer): CapType acquires Capability {
-        let account_addr = Signer::address_of(account);
+        let account_addr = signer::address_of(account);
 
         // Check if capability stored under account.
         assert!(exists<Capability<CapType>>(account_addr), ERR_CAP_MISSED);
@@ -57,7 +57,7 @@ module Alice::TestCoin {
 
     /// Put mint or burn `capability` under user account.
     public fun put_capability<CapType: store>(account: &signer, capability: CapType) {
-        let account_addr = Signer::address_of(account);
+        let account_addr = signer::address_of(account);
 
         // Check if capability doesn't exist under account so we can store.
         assert!(!exists<Capability<CapType>>(account_addr), ERR_CAP_EXISTS);

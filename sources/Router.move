@@ -1,9 +1,9 @@
-module Multichain::Router {
-    use Std::Errors;
-    use Std::Signer;
-    use AptosFramework::Coin::{Self, BurnCapability, MintCapability};
-    use AptosFramework::TypeInfo;
-    use Multichain::PoolCoin;
+module multichain::router {
+    use std::errors;
+    use std::signer;
+    use aptos_framework::coin::{Self, BurnCapability, MintCapability};
+    use aptos_framework::type_info;
+    use multichain::poolCoin;
 
     struct MintCap<phantom CoinType: store> has key, store {
         cap: MintCapability<CoinType>,
@@ -29,34 +29,34 @@ module Multichain::Router {
     }
 
     public entry fun swapout<CoinType: store>(account: &signer, amount: u64, _receiver: vector<u8>, _toChainID: u64) acquires BurnCap, TokenInfo {  
-        let type_info = TypeInfo::type_of<TokenInfo<CoinType>>();
-        let admin_address = TypeInfo::account_address(&type_info);
+        let typeInfo = type_info::type_of<TokenInfo<CoinType>>();
+        let admin_address = type_info::account_address(&typeInfo);
 
         let tokenInfo = borrow_global<TokenInfo<CoinType>>(admin_address);  
         if (tokenInfo.mode == 1) { 
             // CoinType is UnderlyingCoin, not PoolCoin
-            let coin = Coin::withdraw<CoinType>(account, amount);
-            PoolCoin::depositByVault<CoinType>(coin);
+            let coin = coin::withdraw<CoinType>(account, amount);
+            poolCoin::depositByVault<CoinType>(coin);
         };
         let burn_cap = borrow_global<BurnCap<CoinType>>(admin_address);  
-        Coin::burn_from<CoinType>(Signer::address_of(account), amount, &burn_cap.cap);  
+        coin::burn_from<CoinType>(signer::address_of(account), amount, &burn_cap.cap);  
         // emit LogSwapout(txid, amount, receiver, toChainID)
     } 
 
     public entry fun swapin<CoinType: store>(admin: &signer, receiver: address, amount: u64, _fromEvent: vector<u8>, _fromChainID: u64) acquires MintCap,TokenInfo {   
-        let type_info = TypeInfo::type_of<TokenInfo<CoinType>>();
-        let admin_address = TypeInfo::account_address(&type_info);
-        assert!(admin_address == Signer::address_of(admin), Errors::requires_capability(2));
+        let typeInfo = type_info::type_of<TokenInfo<CoinType>>();
+        let admin_address = type_info::account_address(&typeInfo);
+        assert!(admin_address == signer::address_of(admin), errors::requires_capability(2));
 
         let tokenInfo = borrow_global<TokenInfo<CoinType>>(admin_address);  
         if (tokenInfo.mode == 1) { 
             // CoinType is UnderlyingCoin, not PoolCoin
-            let coin = PoolCoin::withdrawByVault<CoinType>(admin, amount);
-            Coin::deposit<CoinType>(receiver, coin);
+            let coin = poolCoin::withdrawByVault<CoinType>(admin, amount);
+            coin::deposit<CoinType>(receiver, coin);
         };
         let mint_cap = borrow_global<MintCap<CoinType>>(admin_address);
-        let coins_minted = Coin::mint<CoinType>(amount, &mint_cap.cap);
-        Coin::deposit<CoinType>(receiver, coins_minted);
+        let coins_minted = coin::mint<CoinType>(amount, &mint_cap.cap);
+        coin::deposit<CoinType>(receiver, coins_minted);
         // emit LogSwapin(amount, receiver, fromChainID)
     }
 }
