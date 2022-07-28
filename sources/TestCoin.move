@@ -38,7 +38,7 @@ module Alice::TestCoin {
     }
 
     /// Similar to `initialize_internal` but can be executed as script.
-    public(script) fun initialize(account: &signer) {
+    public entry fun initialize(account: &signer) {
         initialize_internal(account);
     }
 

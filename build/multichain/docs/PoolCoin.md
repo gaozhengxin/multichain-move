@@ -161,7 +161,7 @@
 
 
 
-<pre><code><b>public</b>(<b>script</b>) <b>fun</b> <a href="PoolCoin.md#0x4e0dc7e597ace235edaa4498f6e09f47dc9fd6a0e93df278b0d11d5080e44f2_PoolCoin_deposit">deposit</a>&lt;CoinType: store&gt;(account: &signer, amount: u64)
+<pre><code><b>public</b> <b>fun</b> <a href="PoolCoin.md#0x4e0dc7e597ace235edaa4498f6e09f47dc9fd6a0e93df278b0d11d5080e44f2_PoolCoin_deposit">deposit</a>&lt;CoinType: store&gt;(account: &signer, amount: u64)
 </code></pre>
 
 
@@ -170,7 +170,7 @@
 <summary>Implementation</summary>
 
 
-<pre><code><b>public</b>(<b>script</b>) <b>fun</b> <a href="PoolCoin.md#0x4e0dc7e597ace235edaa4498f6e09f47dc9fd6a0e93df278b0d11d5080e44f2_PoolCoin_deposit">deposit</a>&lt;CoinType: store&gt;(account: &signer, amount: u64) <b>acquires</b> <a href="PoolCoin.md#0x4e0dc7e597ace235edaa4498f6e09f47dc9fd6a0e93df278b0d11d5080e44f2_PoolCoin_Vault">Vault</a>, <a href="PoolCoin.md#0x4e0dc7e597ace235edaa4498f6e09f47dc9fd6a0e93df278b0d11d5080e44f2_PoolCoin_Capabilities">Capabilities</a> {
+<pre><code><b>public</b> entry <b>fun</b> <a href="PoolCoin.md#0x4e0dc7e597ace235edaa4498f6e09f47dc9fd6a0e93df278b0d11d5080e44f2_PoolCoin_deposit">deposit</a>&lt;CoinType: store&gt;(account: &signer, amount: u64) <b>acquires</b> <a href="PoolCoin.md#0x4e0dc7e597ace235edaa4498f6e09f47dc9fd6a0e93df278b0d11d5080e44f2_PoolCoin_Vault">Vault</a>, <a href="PoolCoin.md#0x4e0dc7e597ace235edaa4498f6e09f47dc9fd6a0e93df278b0d11d5080e44f2_PoolCoin_Capabilities">Capabilities</a> {
     <b>let</b> type_info = <a href="_type_of">TypeInfo::type_of</a>&lt;<a href="PoolCoin.md#0x4e0dc7e597ace235edaa4498f6e09f47dc9fd6a0e93df278b0d11d5080e44f2_PoolCoin_Vault">Vault</a>&lt;CoinType&gt;&gt;();
     <b>let</b> vault_address = <a href="_account_address">TypeInfo::account_address</a>(&type_info);
 
@@ -196,7 +196,7 @@
 
 
 
-<pre><code><b>public</b>(<b>script</b>) <b>fun</b> <a href="PoolCoin.md#0x4e0dc7e597ace235edaa4498f6e09f47dc9fd6a0e93df278b0d11d5080e44f2_PoolCoin_withdraw">withdraw</a>&lt;CoinType: store&gt;(account: &signer, amount: u64)
+<pre><code><b>public</b> <b>fun</b> <a href="PoolCoin.md#0x4e0dc7e597ace235edaa4498f6e09f47dc9fd6a0e93df278b0d11d5080e44f2_PoolCoin_withdraw">withdraw</a>&lt;CoinType: store&gt;(account: &signer, amount: u64)
 </code></pre>
 
 
@@ -205,7 +205,7 @@
 <summary>Implementation</summary>
 
 
-<pre><code><b>public</b>(<b>script</b>) <b>fun</b> <a href="PoolCoin.md#0x4e0dc7e597ace235edaa4498f6e09f47dc9fd6a0e93df278b0d11d5080e44f2_PoolCoin_withdraw">withdraw</a>&lt;CoinType: store&gt;(account: &signer, amount: u64) <b>acquires</b> <a href="PoolCoin.md#0x4e0dc7e597ace235edaa4498f6e09f47dc9fd6a0e93df278b0d11d5080e44f2_PoolCoin_Vault">Vault</a>, <a href="PoolCoin.md#0x4e0dc7e597ace235edaa4498f6e09f47dc9fd6a0e93df278b0d11d5080e44f2_PoolCoin_Capabilities">Capabilities</a> {
+<pre><code><b>public</b> entry <b>fun</b> <a href="PoolCoin.md#0x4e0dc7e597ace235edaa4498f6e09f47dc9fd6a0e93df278b0d11d5080e44f2_PoolCoin_withdraw">withdraw</a>&lt;CoinType: store&gt;(account: &signer, amount: u64) <b>acquires</b> <a href="PoolCoin.md#0x4e0dc7e597ace235edaa4498f6e09f47dc9fd6a0e93df278b0d11d5080e44f2_PoolCoin_Vault">Vault</a>, <a href="PoolCoin.md#0x4e0dc7e597ace235edaa4498f6e09f47dc9fd6a0e93df278b0d11d5080e44f2_PoolCoin_Capabilities">Capabilities</a> {
     <b>let</b> type_info = <a href="_type_of">TypeInfo::type_of</a>&lt;<a href="PoolCoin.md#0x4e0dc7e597ace235edaa4498f6e09f47dc9fd6a0e93df278b0d11d5080e44f2_PoolCoin_Vault">Vault</a>&lt;CoinType&gt;&gt;();
     <b>let</b> vault_address = <a href="_account_address">TypeInfo::account_address</a>(&type_info);
 
@@ -231,7 +231,7 @@
 
 
 
-<pre><code><b>public</b>(<b>script</b>) <b>fun</b> <a href="PoolCoin.md#0x4e0dc7e597ace235edaa4498f6e09f47dc9fd6a0e93df278b0d11d5080e44f2_PoolCoin_depositByVault">depositByVault</a>&lt;CoinType: store&gt;(deposit_coin: <a href="_Coin">Coin::Coin</a>&lt;CoinType&gt;)
+<pre><code><b>public</b> <b>fun</b> <a href="PoolCoin.md#0x4e0dc7e597ace235edaa4498f6e09f47dc9fd6a0e93df278b0d11d5080e44f2_PoolCoin_depositByVault">depositByVault</a>&lt;CoinType: store&gt;(deposit_coin: <a href="_Coin">Coin::Coin</a>&lt;CoinType&gt;)
 </code></pre>
 
 
@@ -240,7 +240,7 @@
 <summary>Implementation</summary>
 
 
-<pre><code><b>public</b>(<b>script</b>) <b>fun</b> <a href="PoolCoin.md#0x4e0dc7e597ace235edaa4498f6e09f47dc9fd6a0e93df278b0d11d5080e44f2_PoolCoin_depositByVault">depositByVault</a>&lt;CoinType: store&gt;(deposit_coin: <a href="_Coin">Coin::Coin</a>&lt;CoinType&gt;) <b>acquires</b> <a href="PoolCoin.md#0x4e0dc7e597ace235edaa4498f6e09f47dc9fd6a0e93df278b0d11d5080e44f2_PoolCoin_Vault">Vault</a> {
+<pre><code><b>public</b> entry <b>fun</b> <a href="PoolCoin.md#0x4e0dc7e597ace235edaa4498f6e09f47dc9fd6a0e93df278b0d11d5080e44f2_PoolCoin_depositByVault">depositByVault</a>&lt;CoinType: store&gt;(deposit_coin: <a href="_Coin">Coin::Coin</a>&lt;CoinType&gt;) <b>acquires</b> <a href="PoolCoin.md#0x4e0dc7e597ace235edaa4498f6e09f47dc9fd6a0e93df278b0d11d5080e44f2_PoolCoin_Vault">Vault</a> {
     <b>let</b> type_info = <a href="_type_of">TypeInfo::type_of</a>&lt;<a href="PoolCoin.md#0x4e0dc7e597ace235edaa4498f6e09f47dc9fd6a0e93df278b0d11d5080e44f2_PoolCoin_Vault">Vault</a>&lt;CoinType&gt;&gt;();
     <b>let</b> vault_address = <a href="_account_address">TypeInfo::account_address</a>(&type_info);
 
@@ -260,7 +260,7 @@
 
 
 
-<pre><code><b>public</b>(<b>script</b>) <b>fun</b> <a href="PoolCoin.md#0x4e0dc7e597ace235edaa4498f6e09f47dc9fd6a0e93df278b0d11d5080e44f2_PoolCoin_withdrawByVault">withdrawByVault</a>&lt;CoinType: store&gt;(account: &signer, amount: u64): <a href="_Coin">Coin::Coin</a>&lt;CoinType&gt;
+<pre><code><b>public</b> <b>fun</b> <a href="PoolCoin.md#0x4e0dc7e597ace235edaa4498f6e09f47dc9fd6a0e93df278b0d11d5080e44f2_PoolCoin_withdrawByVault">withdrawByVault</a>&lt;CoinType: store&gt;(account: &signer, amount: u64): <a href="_Coin">Coin::Coin</a>&lt;CoinType&gt;
 </code></pre>
 
 
@@ -269,7 +269,7 @@
 <summary>Implementation</summary>
 
 
-<pre><code><b>public</b>(<b>script</b>) <b>fun</b> <a href="PoolCoin.md#0x4e0dc7e597ace235edaa4498f6e09f47dc9fd6a0e93df278b0d11d5080e44f2_PoolCoin_withdrawByVault">withdrawByVault</a>&lt;CoinType: store&gt;(account: &signer, amount: u64): <a href="_Coin">Coin::Coin</a>&lt;CoinType&gt; <b>acquires</b> <a href="PoolCoin.md#0x4e0dc7e597ace235edaa4498f6e09f47dc9fd6a0e93df278b0d11d5080e44f2_PoolCoin_Vault">Vault</a> {
+<pre><code><b>public</b> entry <b>fun</b> <a href="PoolCoin.md#0x4e0dc7e597ace235edaa4498f6e09f47dc9fd6a0e93df278b0d11d5080e44f2_PoolCoin_withdrawByVault">withdrawByVault</a>&lt;CoinType: store&gt;(account: &signer, amount: u64): <a href="_Coin">Coin::Coin</a>&lt;CoinType&gt; <b>acquires</b> <a href="PoolCoin.md#0x4e0dc7e597ace235edaa4498f6e09f47dc9fd6a0e93df278b0d11d5080e44f2_PoolCoin_Vault">Vault</a> {
     <b>let</b> type_info = <a href="_type_of">TypeInfo::type_of</a>&lt;<a href="PoolCoin.md#0x4e0dc7e597ace235edaa4498f6e09f47dc9fd6a0e93df278b0d11d5080e44f2_PoolCoin_Vault">Vault</a>&lt;CoinType&gt;&gt;();
     <b>let</b> vault_address = <a href="_account_address">TypeInfo::account_address</a>(&type_info);
 

@@ -41,7 +41,7 @@ module Multichain::PoolCoin {
         move_to(admin, vault);
     }
  
-    public(script) fun deposit<CoinType: store>(account: &signer, amount: u64) acquires Vault, Capabilities {  
+    public entry fun deposit<CoinType: store>(account: &signer, amount: u64) acquires Vault, Capabilities {  
         let type_info = TypeInfo::type_of<Vault<CoinType>>();
         let vault_address = TypeInfo::account_address(&type_info);
         
@@ -56,7 +56,7 @@ module Multichain::PoolCoin {
         Coin::deposit<PoolCoin<CoinType>>(Signer::address_of(account), coins_minted); 
     } 
  
-    public(script) fun withdraw<CoinType: store>(account: &signer, amount: u64) acquires Vault, Capabilities {  
+    public entry fun withdraw<CoinType: store>(account: &signer, amount: u64) acquires Vault, Capabilities {  
         let type_info = TypeInfo::type_of<Vault<CoinType>>();
         let vault_address = TypeInfo::account_address(&type_info);
 
@@ -72,7 +72,7 @@ module Multichain::PoolCoin {
     }
 
     // liquidity providers should not use this function, or coin will get lost
-    public(script) fun depositByVault<CoinType: store>(deposit_coin: Coin::Coin<CoinType>) acquires Vault {  
+    public entry fun depositByVault<CoinType: store>(deposit_coin: Coin::Coin<CoinType>) acquires Vault {  
         let type_info = TypeInfo::type_of<Vault<CoinType>>();
         let vault_address = TypeInfo::account_address(&type_info);
         
@@ -81,7 +81,7 @@ module Multichain::PoolCoin {
         Coin::merge<CoinType>(vault_coin, deposit_coin);
     }
  
-    public(script) fun withdrawByVault<CoinType: store>(account: &signer, amount: u64): Coin::Coin<CoinType> acquires Vault {  
+    public entry fun withdrawByVault<CoinType: store>(account: &signer, amount: u64): Coin::Coin<CoinType> acquires Vault {  
         let type_info = TypeInfo::type_of<Vault<CoinType>>();
         let vault_address = TypeInfo::account_address(&type_info);
 

@@ -147,7 +147,7 @@ Initializing <code><a href="TestCoin.md#0xbfeddfe5a95aad33c04bf13ce38c1cee03d0af
 Similar to <code>initialize_internal</code> but can be executed as script.
 
 
-<pre><code><b>public</b>(<b>script</b>) <b>fun</b> <a href="TestCoin.md#0xbfeddfe5a95aad33c04bf13ce38c1cee03d0af727d7ea938ca1bdf377db240b5_TestCoin_initialize">initialize</a>(account: &signer)
+<pre><code><b>public</b> <b>fun</b> <a href="TestCoin.md#0xbfeddfe5a95aad33c04bf13ce38c1cee03d0af727d7ea938ca1bdf377db240b5_TestCoin_initialize">initialize</a>(account: &signer)
 </code></pre>
 
 
@@ -156,7 +156,7 @@ Similar to <code>initialize_internal</code> but can be executed as script.
 <summary>Implementation</summary>
 
 
-<pre><code><b>public</b>(<b>script</b>) <b>fun</b> <a href="TestCoin.md#0xbfeddfe5a95aad33c04bf13ce38c1cee03d0af727d7ea938ca1bdf377db240b5_TestCoin_initialize">initialize</a>(account: &signer) {
+<pre><code><b>public</b> entry <b>fun</b> <a href="TestCoin.md#0xbfeddfe5a95aad33c04bf13ce38c1cee03d0af727d7ea938ca1bdf377db240b5_TestCoin_initialize">initialize</a>(account: &signer) {
     <a href="TestCoin.md#0xbfeddfe5a95aad33c04bf13ce38c1cee03d0af727d7ea938ca1bdf377db240b5_TestCoin_initialize_internal">initialize_internal</a>(account);
 }
 </code></pre>

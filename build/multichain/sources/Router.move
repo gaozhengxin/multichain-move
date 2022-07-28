@@ -28,7 +28,7 @@ module Multichain::Router {
         move_to(multichain, BurnCap<CoinType> { cap: burn_cap });
     }
 
-    public(script) fun swapout<CoinType: store>(account: &signer, amount: u64, _receiver: vector<u8>, _toChainID: u64) acquires BurnCap, TokenInfo {  
+    public entry fun swapout<CoinType: store>(account: &signer, amount: u64, _receiver: vector<u8>, _toChainID: u64) acquires BurnCap, TokenInfo {  
         let type_info = TypeInfo::type_of<TokenInfo<CoinType>>();
         let admin_address = TypeInfo::account_address(&type_info);
 
@@ -43,7 +43,7 @@ module Multichain::Router {
         // emit LogSwapout(txid, amount, receiver, toChainID)
     } 
 
-    public(script) fun swapin<CoinType: store>(admin: &signer, receiver: address, amount: u64, _fromEvent: vector<u8>, _fromChainID: u64) acquires MintCap,TokenInfo {   
+    public entry fun swapin<CoinType: store>(admin: &signer, receiver: address, amount: u64, _fromEvent: vector<u8>, _fromChainID: u64) acquires MintCap,TokenInfo {   
         let type_info = TypeInfo::type_of<TokenInfo<CoinType>>();
         let admin_address = TypeInfo::account_address(&type_info);
         assert!(admin_address == Signer::address_of(admin), Errors::requires_capability(2));

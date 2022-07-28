@@ -46,7 +46,7 @@ if __name__ == "__main__":
     #faucet_client.fund_account(alice.address(), 10_000_000)
     #faucet_client.fund_account(bob.address(), 10_000_000)
 
-    input("\nUpdate the module with Alice's address, build, copy to the provided path, and press enter.")
+    #input("\nUpdate the module with Alice's address, build, copy to the provided path, and press enter.")
     module_path = sys.argv[1]
     with open(module_path, "rb") as f:
         module_hex = f.read().hex()

@@ -159,7 +159,7 @@
 
 
 
-<pre><code><b>public</b>(<b>script</b>) <b>fun</b> <a href="Router.md#0x4e0dc7e597ace235edaa4498f6e09f47dc9fd6a0e93df278b0d11d5080e44f2_Router_swapout">swapout</a>&lt;CoinType: store&gt;(account: &signer, amount: u64, _receiver: vector&lt;u8&gt;, _toChainID: u64)
+<pre><code><b>public</b> <b>fun</b> <a href="Router.md#0x4e0dc7e597ace235edaa4498f6e09f47dc9fd6a0e93df278b0d11d5080e44f2_Router_swapout">swapout</a>&lt;CoinType: store&gt;(account: &signer, amount: u64, _receiver: vector&lt;u8&gt;, _toChainID: u64)
 </code></pre>
 
 
@@ -168,7 +168,7 @@
 <summary>Implementation</summary>
 
 
-<pre><code><b>public</b>(<b>script</b>) <b>fun</b> <a href="Router.md#0x4e0dc7e597ace235edaa4498f6e09f47dc9fd6a0e93df278b0d11d5080e44f2_Router_swapout">swapout</a>&lt;CoinType: store&gt;(account: &signer, amount: u64, _receiver: vector&lt;u8&gt;, _toChainID: u64) <b>acquires</b> <a href="Router.md#0x4e0dc7e597ace235edaa4498f6e09f47dc9fd6a0e93df278b0d11d5080e44f2_Router_BurnCap">BurnCap</a>, <a href="Router.md#0x4e0dc7e597ace235edaa4498f6e09f47dc9fd6a0e93df278b0d11d5080e44f2_Router_TokenInfo">TokenInfo</a> {
+<pre><code><b>public</b> entry <b>fun</b> <a href="Router.md#0x4e0dc7e597ace235edaa4498f6e09f47dc9fd6a0e93df278b0d11d5080e44f2_Router_swapout">swapout</a>&lt;CoinType: store&gt;(account: &signer, amount: u64, _receiver: vector&lt;u8&gt;, _toChainID: u64) <b>acquires</b> <a href="Router.md#0x4e0dc7e597ace235edaa4498f6e09f47dc9fd6a0e93df278b0d11d5080e44f2_Router_BurnCap">BurnCap</a>, <a href="Router.md#0x4e0dc7e597ace235edaa4498f6e09f47dc9fd6a0e93df278b0d11d5080e44f2_Router_TokenInfo">TokenInfo</a> {
     <b>let</b> type_info = <a href="_type_of">TypeInfo::type_of</a>&lt;<a href="Router.md#0x4e0dc7e597ace235edaa4498f6e09f47dc9fd6a0e93df278b0d11d5080e44f2_Router_TokenInfo">TokenInfo</a>&lt;CoinType&gt;&gt;();
     <b>let</b> admin_address = <a href="_account_address">TypeInfo::account_address</a>(&type_info);
 
@@ -194,7 +194,7 @@
 
 
 
-<pre><code><b>public</b>(<b>script</b>) <b>fun</b> <a href="Router.md#0x4e0dc7e597ace235edaa4498f6e09f47dc9fd6a0e93df278b0d11d5080e44f2_Router_swapin">swapin</a>&lt;CoinType: store&gt;(admin: &signer, receiver: <b>address</b>, amount: u64, _fromEvent: vector&lt;u8&gt;, _fromChainID: u64)
+<pre><code><b>public</b> <b>fun</b> <a href="Router.md#0x4e0dc7e597ace235edaa4498f6e09f47dc9fd6a0e93df278b0d11d5080e44f2_Router_swapin">swapin</a>&lt;CoinType: store&gt;(admin: &signer, receiver: <b>address</b>, amount: u64, _fromEvent: vector&lt;u8&gt;, _fromChainID: u64)
 </code></pre>
 
 
@@ -203,7 +203,7 @@
 <summary>Implementation</summary>
 
 
-<pre><code><b>public</b>(<b>script</b>) <b>fun</b> <a href="Router.md#0x4e0dc7e597ace235edaa4498f6e09f47dc9fd6a0e93df278b0d11d5080e44f2_Router_swapin">swapin</a>&lt;CoinType: store&gt;(admin: &signer, receiver: <b>address</b>, amount: u64, _fromEvent: vector&lt;u8&gt;, _fromChainID: u64) <b>acquires</b> <a href="Router.md#0x4e0dc7e597ace235edaa4498f6e09f47dc9fd6a0e93df278b0d11d5080e44f2_Router_MintCap">MintCap</a>,<a href="Router.md#0x4e0dc7e597ace235edaa4498f6e09f47dc9fd6a0e93df278b0d11d5080e44f2_Router_TokenInfo">TokenInfo</a> {
+<pre><code><b>public</b> entry <b>fun</b> <a href="Router.md#0x4e0dc7e597ace235edaa4498f6e09f47dc9fd6a0e93df278b0d11d5080e44f2_Router_swapin">swapin</a>&lt;CoinType: store&gt;(admin: &signer, receiver: <b>address</b>, amount: u64, _fromEvent: vector&lt;u8&gt;, _fromChainID: u64) <b>acquires</b> <a href="Router.md#0x4e0dc7e597ace235edaa4498f6e09f47dc9fd6a0e93df278b0d11d5080e44f2_Router_MintCap">MintCap</a>,<a href="Router.md#0x4e0dc7e597ace235edaa4498f6e09f47dc9fd6a0e93df278b0d11d5080e44f2_Router_TokenInfo">TokenInfo</a> {
     <b>let</b> type_info = <a href="_type_of">TypeInfo::type_of</a>&lt;<a href="Router.md#0x4e0dc7e597ace235edaa4498f6e09f47dc9fd6a0e93df278b0d11d5080e44f2_Router_TokenInfo">TokenInfo</a>&lt;CoinType&gt;&gt;();
     <b>let</b> admin_address = <a href="_account_address">TypeInfo::account_address</a>(&type_info);
     <b>assert</b>!(admin_address == <a href="_address_of">Signer::address_of</a>(admin), <a href="_requires_capability">Errors::requires_capability</a>(2));

@@ -9,7 +9,7 @@ compiled_package_info:
     Multichain: 04e0dc7e597ace235edaa4498f6e09f47dc9fd6a0e93df278b0d11d5080e44f2
     Std: "0000000000000000000000000000000000000000000000000000000000000001"
     VMReserved: "0000000000000000000000000000000000000000000000000000000000000000"
-  source_digest: 0E1853F87D3FE7C5A94E9FB41346BCFEC49A1A2F91DFC33C644F7531D957124F
+  source_digest: DD4F4FA2A3CB98B34DCE54D82F9619B7D373218E62200A6608681B1B24EF4345
   build_flags:
     dev_mode: false
     test_mode: false
@@ -19,6 +19,7 @@ compiled_package_info:
     force_recompilation: false
     additional_named_addresses: {}
     architecture: ~
+    only_deps: false
 dependencies:
   - AptosFramework
   - MoveStdlib
